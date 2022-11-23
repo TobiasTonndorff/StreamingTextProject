@@ -16,8 +16,8 @@ public class FileIO {
                 String mediaName = separatedInput[0];
                 int movieReleaseYear = Integer.parseInt(separatedInput[1]);
                 String movieCategory = separatedInput[2];
-                String ratingRatingForParse = separatedInput[3].replace(',',',').replace(";", "");
-                float movieRating = Float.parseFloat(ratingRatingForParse);
+                String ratingparse = separatedInput[3].replace(',',',').replace(";", "");
+                float movieRating = Float.parseFloat(ratingparse);
                 AMedia media = new Movie(mediaName, movieCategory, movieRating, movieReleaseYear);
                 MoviesArr.add(media);
             }while(scan.hasNextLine());
@@ -44,7 +44,22 @@ public class FileIO {
                     seriesReleaseYearEnd = Integer.parseInt(seperateYear[1].trim());
                 }
                 String Seriescategory = separatedInput[2];
-            }
+                String ratingParse = separatedInput[3].replace(',', '.');
+                float seriesRating = Float.parseFloat(ratingParse);
+                String[] seperateSeasons = separatedInput[4].split(",");
+                for(int i = 0; i < seperateSeasons.length; i++){
+                    String[] separateEpisodes = seperateSeasons[i].split("-");
+                    int seasons = Integer.parseInt(separateEpisodes[0].trim());
+                    int numberOfEpisodes = Integer.parseInt(separateEpisodes[1].replace(";", "").trim());
+                    for(int episode = 1; episode <= numberOfEpisodes; episode++){
+                        AMedia media = new Series(mediaName, Seriescategory, seriesRating, seriesReleaseYearStart,  seasons, episode, seriesReleaseYearEnd  );
+                        SeriesArr.add(media);
+                    }
+                }
+            }while (scan.hasNextLine());
+        }catch (FileNotFoundException e){
+            System.out.println("Failed to load series data.");
         }
+        return SeriesArr;
     }
 }
