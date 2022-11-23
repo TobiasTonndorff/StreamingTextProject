@@ -26,8 +26,8 @@ public class ProgramControl {
             UsersList.add(defaultUser);
         }
         //Main Menu skal laves
-        mainMenu = new MainMenu(UsersList, movieList, seriesList);
-        mainMenu.runMainMenu();
+        //mainMenu = new MainMenu();
+        //mainMenu.runMainMenu();
 
         FileIO.writeUsersFile("Data/Users.csv", UsersList);
 

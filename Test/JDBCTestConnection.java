@@ -13,7 +13,7 @@ public class JDBCTestConnection {
 
         String url = "jdbc:mysql://localhost/world?" + "autoReconnect=true&useSSL=false";
         String username = "root";
-        String password = "Supermandhaderkryp29t!";
+        String password = "olle123";
 
 
         try{
