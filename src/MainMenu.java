@@ -1,4 +1,4 @@
-import javax.xml.crypto.Data;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ public class MainMenu {
 
     public class UI {
 
-        Data data = new Data();
+
         int userInput;
 
         public int getUserInput(String msg) {
