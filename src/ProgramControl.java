@@ -6,7 +6,7 @@ public class ProgramControl {
     public static User defaultUser;
     public static MainMenu mainMenu;
 
-    public programcontrol(){
+    public ProgramControl(){
 
     }
     public void runProgram(){
@@ -25,6 +25,7 @@ public class ProgramControl {
         if(!UsersList.contains(defaultUser)){
             UsersList.add(defaultUser);
         }
+        //Main Menu skal laves
         mainMenu = new MainMenu(UsersList, movieList, seriesList);
         mainMenu.runMainMenu();
 
